@@ -65,7 +65,7 @@ public class Livro {
     @Override
     public String toString() {
         return "ID do livro: " + id
-                + "Título: " + titulo
+                + "\nTítulo: " + titulo
                 + "\nAutor: " + autor
                 + "\nDescricao: " + descricao
                 + "\nStatus: " + (emprestado ? "Emprestado para " + nomeCliente : "Disponível");

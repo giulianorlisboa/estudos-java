@@ -16,21 +16,22 @@ public class Main {
         System.out.println("3 - Buscar informações do livro por ID.");
         System.out.println("4 - Alterar dados do livro.");
         System.out.println("5 - Excluir livro.");
+        System.out.println("0 - Sair.");
+        System.out.print("Insira a opção desejada: ");
         int opcao = sc.nextInt();
         sc.nextLine();
 
         while (opcao != 0) {
             switch (opcao) {
                 case 1:
-                    System.out.println("Digite o nome do livro: ");
+                    System.out.print("Digite o nome do livro: ");
                     String nomeLivro = sc.nextLine();
-                    System.out.println("Digite o autor do livro: ");
+                    System.out.print("Digite o autor do livro: ");
                     String autorLivro = sc.nextLine();
-                    System.out.println("Digite uma descrição para o livro: ");
+                    System.out.print("Digite uma descrição para o livro: ");
                     String descricaoLivro = sc.nextLine();
                     Livro novoLivro = livroService.cadastrarLivro(nomeLivro, autorLivro, descricaoLivro);
                     System.out.println("Livro cadastrado com sucesso!");
-                    System.out.println(novoLivro);
                     break;
                 case 2:
                     List<Livro> livros = livroService.listarLivros();
@@ -52,12 +53,32 @@ public class Main {
                         System.out.println("Erro: " + e.getMessage());
                     }
                     break;
-
+                case 4:
+                    System.out.println("Qual livro deseja alterar? insira o ID do livro: ");
+                    int idLivroParaEditar = sc.nextInt();
+                    sc.nextLine();
+                    try {
+                        Livro livroParaEditar = livroService.buscarlivro(idLivroParaEditar);
+                        System.out.println("O livro que você vai editar: ");
+                        System.out.println(livroParaEditar);
+                        System.out.println("Digite o novo titulo do livro: ");
+                        String novoTituloLivro = sc.nextLine();
+                        System.out.println("Digite o novo autor do livro: ");
+                        String novoAutorLivro = sc.nextLine();
+                        System.out.println("Digite a nova descricao do livro: ");
+                        String novaDescricaoLivro = sc.nextLine();
+                        livroService.editarLivro(idLivroParaEditar, novoTituloLivro, novoAutorLivro, novaDescricaoLivro);
+                        System.out.println("Livro atualizado com sucesso!");
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Erro: " + e.getMessage());
+                    }
+                    break;
                 default:
                     break;
 
             }
-            System.out.println("O que deseja fazer? ");
+            System.out.println();
+            System.out.println("O que deseja fazer agora? ");
             opcao = sc.nextInt();
             sc.nextLine();
 
