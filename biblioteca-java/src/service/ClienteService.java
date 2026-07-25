@@ -16,6 +16,10 @@ public class ClienteService {
         return clienteRepository.cadastrarCliente(nome, idade);
     }
 
+    public Cliente buscarCliente(int id){
+        return clienteRepository.buscarCliente(id);
+    }
+
     public boolean removerCliente(int id){
         return clienteRepository.removerCliente(id);
     }

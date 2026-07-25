@@ -11,7 +11,7 @@ public class LivroRepository {
     private int proximoId = 1;
 
     public Livro salvar(String titulo, String autor, String descricao){
-        Livro livro = new Livro(proximoId, titulo, autor, false, descricao);
+        Livro livro = new Livro(proximoId++, titulo, autor, false, descricao, null);
         livros.add(livro);
         return livro;
     }

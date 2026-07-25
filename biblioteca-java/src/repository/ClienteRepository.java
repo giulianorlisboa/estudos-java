@@ -9,10 +9,12 @@ public class ClienteRepository {
     private int proximoId = 1;
 
     public Cliente cadastrarCliente(String nome, int idade){
-        Cliente cliente = new Cliente(nome, proximoId, idade);
+        Cliente cliente = new Cliente(nome, proximoId++, idade);
         clientes.add(cliente);
         return cliente;
     }
+
+
 
     public Cliente buscarCliente(int id){
         return clientes.stream()

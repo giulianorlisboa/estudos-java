@@ -22,6 +22,15 @@ public class LivroService {
         return livroRepository.mostrarLivros();
     }
 
+    public Livro buscarlivro(int id) {
+        if (livroRepository.buscarPorId(id) == null){
+            throw new IllegalArgumentException("Nenhum livro foi encontrado.");
+        }
+        else  {
+            return livroRepository.buscarPorId(id);
+        }
+    }
+
     public boolean editarLivro(int idLivro, String titulo, String autor, String descricao){
         return livroRepository.atualizarLivro(idLivro, titulo, autor, descricao);
     }

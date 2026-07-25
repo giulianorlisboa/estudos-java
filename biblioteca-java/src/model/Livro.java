@@ -7,16 +7,16 @@ public class Livro {
     private String autor;
     private boolean emprestado;
     private String descricao;
+    private String nomeCliente;
 
-    public Livro(int id, String titulo, String autor, boolean emprestado, String descricao) {
+    public Livro(int id, String titulo, String autor, boolean emprestado, String descricao, String nomeCliente) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.emprestado = emprestado;
         this.descricao = descricao;
+        this.nomeCliente = nomeCliente;
     }
-
-    Cliente cliente;
 
     public int getId() {
         return id;
@@ -54,11 +54,20 @@ public class Livro {
         this.descricao = descricao;
     }
 
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
     @Override
     public String toString() {
-        return "Título: " + titulo
-                + ", Autor: " + autor
-                + ", Status: " + (emprestado ? "Emprestado para " + cliente.getNome() : "Disponível")
-                + ", Descricao: " + descricao;
+        return "ID do livro: " + id
+                + "Título: " + titulo
+                + "\nAutor: " + autor
+                + "\nDescricao: " + descricao
+                + "\nStatus: " + (emprestado ? "Emprestado para " + nomeCliente : "Disponível");
     }
 }
