@@ -16,7 +16,8 @@ public class Main {
         System.out.println("3 - Buscar informações do livro por ID.");
         System.out.println("4 - Alterar dados do livro.");
         System.out.println("5 - Excluir livro.");
-        System.out.println("6 - Sair.");
+        System.out.println("6 - Alugar um livro.");
+        System.out.println("7 - Sair.");
         System.out.print("Insira a opção desejada: ");
         int opcao = sc.nextInt();
         sc.nextLine();
@@ -30,7 +31,7 @@ public class Main {
                     String autorLivro = sc.nextLine();
                     System.out.print("Digite uma descrição para o livro: ");
                     String descricaoLivro = sc.nextLine();
-                    Livro novoLivro = livroService.cadastrarLivro(nomeLivro, autorLivro, descricaoLivro);
+                    livroService.cadastrarLivro(nomeLivro, autorLivro, descricaoLivro);
                     System.out.println("Livro cadastrado com sucesso!");
                     break;
                 case 2:

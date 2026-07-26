@@ -22,8 +22,6 @@ public class Livro {
         return id;
     }
 
-
-
     public String getTitulo() {
         return titulo;
     }
