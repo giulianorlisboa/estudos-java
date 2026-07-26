@@ -16,7 +16,7 @@ public class Main {
         System.out.println("3 - Buscar informações do livro por ID.");
         System.out.println("4 - Alterar dados do livro.");
         System.out.println("5 - Excluir livro.");
-        System.out.println("0 - Sair.");
+        System.out.println("6 - Sair.");
         System.out.print("Insira a opção desejada: ");
         int opcao = sc.nextInt();
         sc.nextLine();
@@ -42,7 +42,7 @@ public class Main {
                     }
                     break;
                 case 3:
-                    System.out.println("Insira o id do livro: ");
+                    System.out.print("Insira o id do livro: ");
                     int numId = sc.nextInt();
                     sc.nextLine();
                     try {
@@ -59,13 +59,13 @@ public class Main {
                     sc.nextLine();
                     try {
                         Livro livroParaEditar = livroService.buscarlivro(idLivroParaEditar);
-                        System.out.println("O livro que você vai editar: ");
+                        System.out.print("O livro que você vai editar: ");
                         System.out.println(livroParaEditar);
-                        System.out.println("Digite o novo titulo do livro: ");
+                        System.out.print("Digite o novo titulo do livro: ");
                         String novoTituloLivro = sc.nextLine();
-                        System.out.println("Digite o novo autor do livro: ");
+                        System.out.print("Digite o novo autor do livro: ");
                         String novoAutorLivro = sc.nextLine();
-                        System.out.println("Digite a nova descricao do livro: ");
+                        System.out.print("Digite a nova descricao do livro: ");
                         String novaDescricaoLivro = sc.nextLine();
                         livroService.editarLivro(idLivroParaEditar, novoTituloLivro, novoAutorLivro, novaDescricaoLivro);
                         System.out.println("Livro atualizado com sucesso!");
@@ -73,12 +73,46 @@ public class Main {
                         System.out.println("Erro: " + e.getMessage());
                     }
                     break;
+                case 5:
+                    System.out.println("Qual livro deseja excluir? Insira o ID do livro: ");
+                    int idLivroParaExcluir = sc.nextInt();
+                    sc.nextLine();
+                    boolean removido = livroService.removerLivro(idLivroParaExcluir);
+                    System.out.println(removido ? "Livro removido com sucesso!" : "Livro não encontrado.");
+                    break;
+                case 6:
+                    System.out.print("Insira o ID do livro que deseja pegar emprestado: ");
+                    int idLivroEmprestar = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Informe o nome de quem quer pegar emprestado: ");
+                    String nomeEmprestado = sc.nextLine();
+                    try {
+                        livroService.emprestarLivro(idLivroEmprestar, nomeEmprestado);
+                        System.out.println("Emprestado com sucesso!");
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Erro: " + e.getMessage());
+                    }
+                    break;
+                case 7:
+                    System.out.println("Fechando sistema.");
+                    opcao = 0;
+                    break;
+
                 default:
+                    System.out.println("Você inseriu uma opção invalida.");
                     break;
 
             }
             System.out.println();
             System.out.println("O que deseja fazer agora? ");
+            System.out.println("1 - Cadastrar livro");
+            System.out.println("2 - Mostrar livros cadastrados");
+            System.out.println("3 - Buscar informações do livro por ID.");
+            System.out.println("4 - Alterar dados do livro.");
+            System.out.println("5 - Excluir livro.");
+            System.out.println("6 - Alugar um livro. Digite o ID do livro que deseja alugar: ");
+            System.out.println("7 - Sair.");
+            System.out.print("Insira a opção desejada: ");
             opcao = sc.nextInt();
             sc.nextLine();
 
