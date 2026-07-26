@@ -34,6 +34,18 @@ public class LivroService {
         livro.setNomeCliente(nome);
     }
 
+    public void devolverLivro(int id) {
+        Livro livro = livroRepository.buscarPorId(id);
+        if (livro == null) {
+            throw new IllegalArgumentException("O livro não foi encontrado.");
+        }
+        if (!livro.isEmprestado()) {
+            throw new IllegalArgumentException("Esse livro não está emprestado.");
+        }
+        livro.setEmprestado(false);
+        livro.setNomeCliente(null);
+    }
+
     public Livro buscarlivro(int id) {
         if (livroRepository.buscarPorId(id) == null) {
             throw new IllegalArgumentException("Nenhum livro foi encontrado.");

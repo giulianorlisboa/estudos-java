@@ -17,7 +17,8 @@ public class Main {
         System.out.println("4 - Alterar dados do livro.");
         System.out.println("5 - Excluir livro.");
         System.out.println("6 - Alugar um livro.");
-        System.out.println("7 - Sair.");
+        System.out.println("7 - Devolver livro.");
+        System.out.println("8 - Sair.");
         System.out.print("Insira a opção desejada: ");
         int opcao = sc.nextInt();
         sc.nextLine();
@@ -95,6 +96,18 @@ public class Main {
                     }
                     break;
                 case 7:
+                    System.out.println("Insira o ID do livro para devolver: ");
+                    int idLivroParaDevolver = sc.nextInt();
+                    sc.nextLine();
+                    try {
+                        livroService.devolverLivro(idLivroParaDevolver);
+                        System.out.println("Livro devolvido com sucesso!");
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Erro: " + e.getMessage());
+                    }
+                    break;
+
+                case 8:
                     System.out.println("Fechando sistema.");
                     opcao = 0;
                     break;
@@ -112,7 +125,8 @@ public class Main {
             System.out.println("4 - Alterar dados do livro.");
             System.out.println("5 - Excluir livro.");
             System.out.println("6 - Alugar um livro. Digite o ID do livro que deseja alugar: ");
-            System.out.println("7 - Sair.");
+            System.out.println("7 - Devolver um livro.");
+            System.out.println("8 - Sair.");
             System.out.print("Insira a opção desejada: ");
             opcao = sc.nextInt();
             sc.nextLine();
