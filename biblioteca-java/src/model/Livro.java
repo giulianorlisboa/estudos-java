@@ -22,16 +22,8 @@ public class Livro {
         return id;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public String getAutor() {
-        return autor;
     }
 
     public void setAutor(String autor) {
@@ -46,16 +38,8 @@ public class Livro {
         this.emprestado = emprestado;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getNomeCliente() {
-        return nomeCliente;
     }
 
     public void setNomeCliente(String nomeCliente) {
