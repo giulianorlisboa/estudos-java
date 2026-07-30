@@ -6,7 +6,6 @@ public class Pessoa {
     private int idade;
     private double altura;
     private String dataNascimento;
-    public static List<Pessoa> listaPessoas = new ArrayList<>();
 
     public Pessoa(String nome, int idade, double altura, String dataNascimento) {
         this.nome = nome;
@@ -47,16 +46,14 @@ public class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    public static void adicionarPessoa(Pessoa p) {
-        listaPessoas.add(p);
-    }
 
     @Override
     public String toString() {
         return "Nome: " + nome
                 + "\nIdade: " + idade
-                + "\nAltura " + String.format("%.2f", altura)
-                + "\nData de Nascimento: " + dataNascimento;
+                + "\nAltura: " + String.format("%.2f", altura) + " m"
+                + "\nData de Nascimento: " + dataNascimento
+                + "\n";
     }
 
 }
