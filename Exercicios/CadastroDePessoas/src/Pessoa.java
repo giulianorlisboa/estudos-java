@@ -1,13 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 
 public class Pessoa {
     private String nome;
     private int idade;
     private double altura;
-    private String dataNascimento;
+    private LocalDate dataNascimento;
 
-    public Pessoa(String nome, int idade, double altura, String dataNascimento) {
+    public Pessoa(String nome, int idade, double altura, LocalDate dataNascimento) {
         this.nome = nome;
         this.idade = idade;
         this.altura = altura;
@@ -38,11 +37,11 @@ public class Pessoa {
         this.altura = altura;
     }
 
-    public String getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
