@@ -1,14 +1,27 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Evento {
+    private int id;
     private String nome;
     private LocalDateTime data;
     private String descricao;
 
-    public Evento(String nome, LocalDateTime data, String descricao) {
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+    public Evento(int id, String nome, LocalDateTime data, String descricao) {
+        this.id = id;
         this.nome = nome;
         this.data = data;
         this.descricao = descricao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -37,8 +50,10 @@ public class Evento {
 
     @Override
     public String toString() {
-        return "Nome do evento: " + nome
-                + "\nData do evento: " + data
-                + "\nDescricao do evento: " + descricao;
+        return "ID Evento: " + id
+                + "\nNome do evento: " + nome
+                + "\nData e hora do evento: " + data.format(formatter)
+                + "\nDescricao do evento: " + descricao
+                + "\n";
     }
 }
