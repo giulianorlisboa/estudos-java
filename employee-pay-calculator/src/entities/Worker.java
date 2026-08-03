@@ -53,7 +53,23 @@ public class Worker {
         return department;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void addContract(HourContract contract) {
+        contracts.add(contract);
     }
+
+    public void removeContract(HourContract contract) {
+        contracts.remove(contract);
+    }
+
+    public Double income(int year, int month) {
+        Double sum = baseSalary;
+        for (HourContract contract : contracts) {
+            if (contract.getDate().getYear() == year && contract.getDate().getMonthValue() == month) {
+                sum += contract.totalValue();
+            }
+        }
+        return sum;
+    }
+
+
 }
