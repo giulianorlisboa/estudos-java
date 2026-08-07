@@ -21,17 +21,17 @@ public class Main
 
 //        BusinessAccount acc5 = (BusinessAccount) acc3;
 
-        if (acc3 instanceof BusinessAccount) {
-            BusinessAccount acc5 = (BusinessAccount) acc3;
-            acc5.loan(200.0);
-            System.out.println("Loan!");
-        }
-
-        if (acc3 instanceof SavingAccount) {
-            SavingAccount acc6 = (SavingAccount) acc3;
-            acc6.updateBalance();
-            System.out.println("UPTADE!");
-        }
+//        if (acc3 instanceof BusinessAccount) {
+//            BusinessAccount acc5 = (BusinessAccount) acc3;
+//            acc5.loan(200.0);
+//            System.out.println("Loan!");
+//        }
+//
+//        if (acc3 instanceof SavingAccount) {
+//            SavingAccount acc6 = (SavingAccount) acc3;
+//            acc6.updateBalance();
+//            System.out.println("UPTADE!");
+//        }
 
 
 
