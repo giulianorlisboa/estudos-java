@@ -33,6 +33,13 @@ public class Main
 //            System.out.println("UPTADE!");
 //        }
 
+        Account acc10 = new Account(1000, "Giuliano", 2000.0);
+        acc10.withdraw(200.0);
+        System.out.println(acc10.getBalance());
+
+        Account acc11 = new SavingAccount(1654, "Ana", 2000.0, 0.01);
+        acc2.withdraw(200.0);
+        System.out.println(acc11.getBalance());
 
 
 
