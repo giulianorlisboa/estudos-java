@@ -31,7 +31,7 @@ public abstract class Pessoa {
 
     public abstract Double calcularImposto();
 
-    public String exibirDados(){
-        return this.nome + ": $ " +  String.format("%.2f", this.calcularImposto());
+    public String exibirDados(Double imposto){
+        return this.nome + ": $ " +  String.format("%.2f", imposto);
     }
 }

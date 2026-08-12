@@ -41,13 +41,15 @@ public class Main {
                 pessoasList.add(new Juridica(nome, renda, qtdFuncionarios));
             }  else {
                 System.out.println("Opção inserida é invalida.");
+                i--;
             }
         }
 
         System.out.println("TAXES PAID:");
         for (Pessoa p : pessoasList) {
-            System.out.println(p.exibirDados());
-            totalImpostos += p.calcularImposto();
+            Double imposto = p.calcularImposto();
+            System.out.println(p.exibirDados(imposto));
+            totalImpostos += imposto;
         }
 
         System.out.println("Total de impostos: " + String.format("%.2f", totalImpostos));
