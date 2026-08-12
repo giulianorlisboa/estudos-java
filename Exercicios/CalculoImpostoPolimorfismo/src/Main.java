@@ -15,6 +15,11 @@ public class Main {
         System.out.print("Digite o numero de contribuintes: ");
         int N = sc.nextInt();
         sc.nextLine();
+        while (N <= 0) {
+            System.out.print("Quantidade inválida. Digite um número maior que zero: ");
+            N = sc.nextInt();
+            sc.nextLine();
+        }
 
         for (int i = 1; i <= N; i++) {
             System.out.print("Pessoa fisica ou pessoa juridica (F/J)? ");
