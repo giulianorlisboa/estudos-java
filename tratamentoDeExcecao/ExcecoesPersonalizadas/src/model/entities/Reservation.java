@@ -41,9 +41,17 @@ public class Reservation {
         return ChronoUnit.DAYS.between(checkIn, checkOut);
     }
 
-    public void atualizaCheckIn(LocalDate checkIn, LocalDate checkOut) {
+    public String atualizaCheckIn(LocalDate checkIn, LocalDate checkOut) {
+        LocalDate now = LocalDate.now();
+        if (checkIn.isBefore(now) || checkOut.isBefore(now)) {
+            return "As datas para reserva devem ser datas futuras.";
+        }
+        if(!checkOut.isAfter(checkIn)){
+            return "O check-out deve ser posterior ao check-in";
+        }
         this.checkIn = checkIn;
         this.checkOut = checkOut;
+        return null;
     }
 
     @Override
