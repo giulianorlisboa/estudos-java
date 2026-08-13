@@ -50,9 +50,9 @@ public class Reservation {
     public String toString() {
         return "Quarto " +
                 numeroDoQuarto
-                +", checkIn: "
+                +", check-in: "
                 + checkIn.format(fmt)
-                +", checkOut: "
+                +", check-out: "
                 + checkOut.format(fmt)
                 +", "
                 + duracao()
