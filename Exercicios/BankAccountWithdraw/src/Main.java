@@ -1,13 +1,47 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import entities.Account;
+import exceptions.InsufficientBalanceException;
+import exceptions.NegativeAmountException;
+import exceptions.WithdrawLimitExceededException;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.println("Insira os dados da conta:");
+            System.out.print("Numero: ");
+            Integer num = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Titular: ");
+            String holder = sc.nextLine();
+            System.out.print("Saldo inicial: ");
+            Double balance = sc.nextDouble();
+            sc.nextLine();
+            System.out.print("Limite de saque: ");
+            Double limit = sc.nextDouble();
+            sc.nextLine();
+            System.out.println();
+            System.out.print("Insira o valor do saque: ");
+            Double withdraw = sc.nextDouble();
+            sc.nextLine();
+            Account acc = new Account(num, holder, balance, limit);
+            acc.withdraw(withdraw);
+            System.out.print("Novo saldo: $" + String.format("%.2f", acc.getBalance()));
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Erro de depósito: " + e.getMessage());
+        }
+        catch (NegativeAmountException e) {
+            System.out.println("Erro de saque: " + e.getMessage());
+        }
+        catch (WithdrawLimitExceededException e) {
+            System.out.println("Limite excedido: " + e.getMessage());
+        }
+        catch (InsufficientBalanceException  e) {
+            System.out.println("Saldo insuficiente: " + e.getMessage());
+        }
+
     }
 }
