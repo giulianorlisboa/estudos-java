@@ -1,5 +1,9 @@
 package entities;
 
+import exceptions.InsufficientBalanceException;
+import exceptions.NegativeAmountException;
+import exceptions.WithdrawLimitExceededException;
+
 public class Account {
 
     private Integer number;
@@ -46,10 +50,24 @@ public class Account {
     }
 
     public void deposit(Double amount) {
-        balance += amount;
+        if (amount <= 0) {
+            throw new IllegalArgumentException("O valor do depósito não pode ser nulo nem negativo");
+        }
+        this.balance += amount;
     }
 
     public void withdraw(Double amount) {
-        balance -= amount;
+        if (amount <= 0) {
+            throw new NegativeAmountException("O valor do saque não pode ser nulo nem negativo");
+        }
+        if (amount > withdrawLimit) {
+            throw new WithdrawLimitExceededException("O valor do saque é maior que o limite permitido.");
+        }
+        if (amount > balance) {
+            throw new InsufficientBalanceException("O valor do saque é maior que o saldo disponivel.");
+        }
+
+        this.balance -= amount;
+
     }
 }
