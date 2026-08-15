@@ -16,17 +16,17 @@ public class Main {
             sc.nextLine();
             System.out.print("Titular: ");
             String holder = sc.nextLine();
-            System.out.print("Saldo inicial: ");
+            System.out.print("Deposito inicial: ");
             Double balance = sc.nextDouble();
             sc.nextLine();
             System.out.print("Limite de saque: ");
             Double limit = sc.nextDouble();
             sc.nextLine();
+            Account acc = new Account(num, holder, balance, limit);
             System.out.println();
             System.out.print("Insira o valor do saque: ");
             Double withdraw = sc.nextDouble();
             sc.nextLine();
-            Account acc = new Account(num, holder, balance, limit);
             acc.withdraw(withdraw);
             System.out.print("Novo saldo: $" + String.format("%.2f", acc.getBalance()));
         }
