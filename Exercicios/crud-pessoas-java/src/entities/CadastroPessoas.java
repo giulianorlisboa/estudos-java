@@ -13,8 +13,12 @@ public class CadastroPessoas extends Pessoa {
     public void exibirPessoas() {
         for (Pessoa pessoa : pessoas) {
             System.out.println(pessoa);
+            System.out.println("____________________________________");
         }
     }
 
+    public void remover(Pessoa pessoa) {
+        pessoas.remove(pessoa);
+    }
 
 }

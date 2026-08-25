@@ -3,13 +3,13 @@ package entities;
 public class Pessoa {
     private String nome;
     private String endereco;
-    private Integer telefone;
+    private Long telefone;
     private String email;
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String endereco, Integer telefone, String email) {
+    public Pessoa(String nome, String endereco, Long telefone, String email) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -32,11 +32,11 @@ public class Pessoa {
         this.endereco = endereco;
     }
 
-    public Integer getTelefone() {
+    public Long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(Long telefone) {
         this.telefone = telefone;
     }
 
