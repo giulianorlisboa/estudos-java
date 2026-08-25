@@ -66,8 +66,27 @@ void main() {
                 break;
 
             case 2:
+                System.out.println("Cadastros encontrados: ");
                 cp.exibirPessoas();
                 break;
+            case 3:
+                System.out.print("Qual o CPF ou CNPJ que deseja fazer alteração ? ");
+                String documento = sc.nextLine();
+                System.out.println("Qual dado deseja alterar ?");
+                System.out.println("1 - Nome");
+                System.out.println("2 - Endereço");
+                System.out.println("3 - Telefone");
+                System.out.println("4 - Email");
+                int opcao2 = sc.nextInt();
+                sc.nextLine();
+                switch (opcao2) {
+                    case 1:
+                        System.out.print("Insira o nome que deseja atualizar: ");
+                        String novoNome = sc.nextLine();
+                        cp.alterarNome(documento, novoNome);
+                        break;
+                }
+
             case 0:
                 rodando = false;
                 break;
