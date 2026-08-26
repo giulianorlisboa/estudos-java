@@ -37,8 +37,49 @@ public class CadastroPessoas extends Pessoa {
     public void alterarEndereco(String documento, String endereco) {
         for (Pessoa pessoa : pessoas) {
             if (pessoa instanceof Fisica pf && pf.getCpf().equals(documento)) {
-                System.out.println("Insira o novo endereço: ");
+                System.out.println("Cadastro alterado com sucesso!");
+                System.out.println(pf);
                 pf.setEndereco(endereco);
+                return;
+            } else if (pessoa instanceof Juridica pj && pj.getCnpj().equals(documento)) {
+                System.out.println("Cadastro alterado com sucesso!");
+                System.out.println(pj);
+                pj.setEndereco(endereco);
+                return;
+            }
+            System.out.println("Nenhum cadastro foi encontrado com o número de CPF ou CNPJ." + documento);
+        }
+    }
+
+    public void alterarTelefone(String documento, long telefone) {
+        for (Pessoa pessoa : pessoas) {
+            if (pessoa instanceof Fisica pf && pf.getCpf().equals(documento)) {
+                System.out.println("Cadastro alterado com sucesso!");
+                System.out.println(pf);
+                pf.setTelefone(telefone);
+                return;
+            } else if (pessoa instanceof Juridica pj && pj.getCnpj().equals(documento)) {
+                System.out.println("Cadastro alterado com sucesso!");
+                System.out.println(pj);
+                pj.setTelefone(telefone);
+                return;
+            }
+            System.out.println("Nenhum cadastro foi encontrado com o número de CPF ou CNPJ." + documento);
+        }
+    }
+
+    public void alterarEmail(String documento, String email) {
+        for (Pessoa pessoa : pessoas) {
+            if (pessoa instanceof Fisica pf && pf.getCpf().equals(documento)) {
+                System.out.println("Cadastro alterado com sucesso!");
+                System.out.println(pf);
+                pf.setEmail(email);
+                return;
+            } else if (pessoa instanceof Fisica pj && pj.getCpf().equals(documento)) {
+                System.out.println("Cadastro alterado com sucesso!");
+                System.out.println(pj);
+                pj.setEmail(email);
+                return;
             }
         }
     }
