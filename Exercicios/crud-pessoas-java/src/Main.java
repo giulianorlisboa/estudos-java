@@ -44,7 +44,6 @@ void main() {
                             }
                         }catch (Exception e) {
                             System.out.println("Erro ao processar o documento, tente novamente.");
-                            cpfValido = false;
                         }
                     }while (!cpfValido);
 
@@ -65,12 +64,25 @@ void main() {
                     sc.nextLine();
                     IO.print("Email: ");
                     String email = sc.nextLine();
-                    IO.print("CNPJ: ");
-                    String cpf = sc.nextLine();
+                    String cnpj = "";
+                    boolean cnpjValido = false;
+                    do {
+                        try {
+                            IO.print("CNPJ: ");
+                            cnpj = sc.nextLine();
+                            cnpjValido = cp.verificarCnpj(cnpj);
+
+                            if (!cnpjValido) {
+                                System.out.println("Documento inválido, digite novamente.");
+                            }
+                        }catch (Exception e) {
+                            System.out.println("Erro ao processar o documento, tente novamente.");
+                        }
+                    }while (!cnpjValido);
                     IO.print("Nome fantasia: ");
                     String nomeFantasia = sc.nextLine();
 
-                    Pessoa p = new Juridica(nomeCompleto, endereco, telefone, email, cpf, nomeFantasia);
+                    Pessoa p = new Juridica(nomeCompleto, endereco, telefone, email, cnpj, nomeFantasia);
                     cp.cadastrar(p);
                     cp.exibirPessoas();
 
