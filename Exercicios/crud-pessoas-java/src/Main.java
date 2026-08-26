@@ -31,8 +31,23 @@ void main() {
                     sc.nextLine();
                     IO.print("Email: ");
                     String email = sc.nextLine();
-                    IO.print("CPF: ");
-                    String cpf = sc.nextLine();
+                    String cpf = "";
+                    boolean cpfValido = false;
+                    do {
+                        try {
+                            IO.print("CPF: ");
+                            cpf = sc.nextLine();
+                            cpfValido = cp.verificarCpf(cpf);
+
+                            if (!cpfValido) {
+                                System.out.println("Documento inválido, digite novamente.");
+                            }
+                        }catch (Exception e) {
+                            System.out.println("Erro ao processar o documento, tente novamente.");
+                            cpfValido = false;
+                        }
+                    }while (!cpfValido);
+
                     IO.print("Data de Nascimento: ");
                     LocalDate dataNascimento = LocalDate.parse(sc.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 

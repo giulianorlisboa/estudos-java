@@ -17,6 +17,65 @@ public class CadastroPessoas extends Pessoa {
         }
     }
 
+    public boolean verificarDocumento(String documento) {
+        if (documento.length() == 11) {
+            return verificarCpf(documento);
+        }else if (documento.length() == 14) {
+            return verificarCnpj(documento);
+        }
+        return false;
+    }
+
+    public boolean verificarCpf(String documento) {
+        int soma = 0;
+//        verificação primeiro digito
+        for (int i = 0; i <= 8; i++) {
+            int numInt = Integer.parseInt(documento.substring(i, i + 1));
+            soma += numInt * (10 - i);
+        }
+        int resto = soma % 11;
+        int digito1 = (resto < 2) ? 0 : 11 - resto;
+//        verificação segundo digito
+        soma = 0;
+        for (int i = 0; i <= 9; i++) {
+            int numInt = Integer.parseInt(documento.substring(i, i + 1));
+            soma += numInt * (11 - i);
+        }
+        resto = soma % 11;
+        int digito2 =  (resto < 2) ? 0 : 11 - resto;
+
+        int digitoInformado1 = Integer.parseInt(documento.substring(9, 10));
+        int digitoInformado2 = Integer.parseInt(documento.substring(10, 11));
+
+        return digito1 == digitoInformado1 && digito2 == digitoInformado2;
+    }
+
+    public boolean verificarCnpj(String documento) {
+        int[] pesos1 = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+        int[] pesos2 = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+
+        int soma = 0;
+        for (int i = 0; i < 12; i++) {
+            int numInt = Integer.parseInt(documento.substring(i, i + 1));
+            soma += numInt * (pesos1[i]);
+        }
+        int resto = soma % 11;
+        int digito1 = (resto < 2) ? 0 : 11 - resto;
+
+        soma = 0;
+        for (int i = 0; i < 13; i++) {
+            int numInt = Integer.parseInt(documento.substring(i, i + 1));
+            soma+= numInt * (pesos2[i]);
+        }
+        resto = soma % 11;
+        int digito2 =  (resto < 2) ? 0 : 11 - resto;
+
+        int digitoInformado1 = Integer.parseInt(documento.substring(12, 13));
+        int digitoInformado2 = Integer.parseInt(documento.substring(13, 14));
+
+        return digito1 == digitoInformado1 && digito2 == digitoInformado2;
+    }
+
     public void alterarNome(String documento, String nome) {
         for (Pessoa pessoa : pessoas) {
             if (pessoa instanceof Fisica pf && pf.getCpf().equals(documento)) {
