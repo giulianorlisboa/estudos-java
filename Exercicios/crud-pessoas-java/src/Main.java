@@ -42,10 +42,10 @@ void main() {
                             if (!cpfValido) {
                                 System.out.println("Documento inválido, digite novamente.");
                             }
-                        }catch (Exception e) {
+                        } catch (Exception e) {
                             System.out.println("Erro ao processar o documento, tente novamente.");
                         }
-                    }while (!cpfValido);
+                    } while (!cpfValido);
 
                     IO.print("Data de Nascimento: ");
                     LocalDate dataNascimento = LocalDate.parse(sc.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
@@ -75,10 +75,10 @@ void main() {
                             if (!cnpjValido) {
                                 System.out.println("Documento inválido, digite novamente.");
                             }
-                        }catch (Exception e) {
+                        } catch (Exception e) {
                             System.out.println("Erro ao processar o documento, tente novamente.");
                         }
-                    }while (!cnpjValido);
+                    } while (!cnpjValido);
                     IO.print("Nome fantasia: ");
                     String nomeFantasia = sc.nextLine();
 
@@ -136,7 +136,20 @@ void main() {
                     }
                 } while (alteracao);
                 break;
+            case 4:
+                boolean excluir = false;
+                do {
+                    try {
+                        IO.print("Insira o nome do usuario que deseja excluir o cadastro: ");
+                        String nome = sc.nextLine();
+                        cp.remover(nome);
+                        excluir = true;
+                    }catch (Exception e) {
+                        IO.println("Erro ao processar a exclusão, tente novamente.");
+                    }
 
+                }while (!excluir);
+                break;
             case 0:
                 rodando = false;
                 break;

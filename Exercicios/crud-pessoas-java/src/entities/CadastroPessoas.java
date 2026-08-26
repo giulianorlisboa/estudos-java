@@ -11,19 +11,15 @@ public class CadastroPessoas extends Pessoa {
     }
 
     public void exibirPessoas() {
-        for (Pessoa pessoa : pessoas) {
-            System.out.println(pessoa);
-            System.out.println("____________________________________");
+        if (pessoas.isEmpty()) {
+            IO.println("Nenhum cadastro foi encontrado!");
+            IO.println();
+        }else {
+            for (Pessoa pessoa : pessoas) {
+                System.out.println(pessoa);
+                System.out.println("____________________________________");
+            }
         }
-    }
-
-    public boolean verificarDocumento(String documento) {
-        if (documento.length() == 11) {
-            return verificarCpf(documento);
-        }else if (documento.length() == 14) {
-            return verificarCnpj(documento);
-        }
-        return false;
     }
 
     public boolean verificarCpf(String documento) {
@@ -143,8 +139,26 @@ public class CadastroPessoas extends Pessoa {
         }
     }
 
-    public void remover(Pessoa pessoa) {
-        pessoas.remove(pessoa);
+    public void remover(String nome) {
+        for (Pessoa pessoa : pessoas) {
+            if (pessoa instanceof Fisica pf && pf.getNome().equalsIgnoreCase(nome)) {
+                System.out.println(pf);
+                pessoas.remove(pessoa);
+                System.out.println("Removido com sucesso!");
+                IO.println();
+                return;
+            }
+        }
+        for (Pessoa pessoa : pessoas) {
+            if (pessoa instanceof Juridica pj && pj.getNome().equalsIgnoreCase(nome)) {
+                System.out.println(pj);
+                pessoas.remove(pessoa);
+                System.out.println("Removido com sucesso!");
+                IO.println();
+                return;
+            }
+        }
+        throw new RuntimeException("");
     }
 
 }
