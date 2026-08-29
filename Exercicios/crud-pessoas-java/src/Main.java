@@ -40,10 +40,10 @@ void main() {
                             cpfValido = cp.verificarCpf(cpf);
 
                             if (!cpfValido) {
-                                System.out.println("Documento inválido, digite novamente.");
+                                IO.println("Documento inválido, digite novamente.");
                             }
                         } catch (Exception e) {
-                            System.out.println("Erro ao processar o documento, tente novamente.");
+                            IO.println("Erro ao processar o documento, tente novamente.");
                         }
                     } while (!cpfValido);
 
@@ -73,10 +73,10 @@ void main() {
                             cnpjValido = cp.verificarCnpj(cnpj);
 
                             if (!cnpjValido) {
-                                System.out.println("Documento inválido, digite novamente.");
+                                IO.println("Documento inválido, digite novamente.");
                             }
                         } catch (Exception e) {
-                            System.out.println("Erro ao processar o documento, tente novamente.");
+                            IO.println("Erro ao processar o documento, tente novamente.");
                         }
                     } while (!cnpjValido);
                     IO.print("Nome fantasia: ");
@@ -93,40 +93,40 @@ void main() {
                 break;
 
             case 2:
-                System.out.println("Cadastros encontrados: ");
+                IO.println("Cadastros encontrados: ");
                 cp.exibirPessoas();
                 break;
             case 3:
-                System.out.print("Qual o CPF ou CNPJ que deseja fazer alteração ? ");
+                IO.print("Qual o CPF ou CNPJ que deseja fazer alteração ? ");
                 String documento = sc.nextLine();
                 boolean alteracao = true;
                 do {
-                    System.out.println("Qual dado deseja alterar ?");
-                    System.out.println("1 - Nome");
-                    System.out.println("2 - Endereço");
-                    System.out.println("3 - Telefone");
-                    System.out.println("4 - Email");
-                    System.out.println("0 - Sair");
+                    IO.println("Qual dado deseja alterar ?");
+                    IO.println("1 - Nome");
+                    IO.println("2 - Endereço");
+                    IO.println("3 - Telefone");
+                    IO.println("4 - Email");
+                    IO.println("0 - Sair");
                     int opcao2 = sc.nextInt();
                     sc.nextLine();
                     switch (opcao2) {
                         case 1:
-                            System.out.print("Insira o nome que deseja atualizar: ");
+                            IO.print("Insira o nome que deseja atualizar: ");
                             String novoNome = sc.nextLine();
                             cp.alterarNome(documento, novoNome);
                             break;
                         case 2:
-                            System.out.print("Insira o novo endereço a ser cadastrado: ");
+                            IO.print("Insira o novo endereço a ser cadastrado: ");
                             String novoEndereco = sc.nextLine();
                             cp.alterarEndereco(documento, novoEndereco);
                             break;
                         case 3:
-                            System.out.print("Insira o novo telefone a ser cadastrado: ");
+                            IO.print("Insira o novo telefone a ser cadastrado: ");
                             long novoTelefone = sc.nextLong();
                             cp.alterarTelefone(documento, novoTelefone);
                             break;
                         case 4:
-                            System.out.println("Insira o novo email a ser cadastrado: ");
+                            IO.println("Insira o novo email a ser cadastrado: ");
                             String novoEmail = sc.nextLine();
                             cp.alterarEmail(documento, novoEmail);
                             break;

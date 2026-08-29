@@ -16,8 +16,8 @@ public class CadastroPessoas extends Pessoa {
             IO.println();
         }else {
             for (Pessoa pessoa : pessoas) {
-                System.out.println(pessoa);
-                System.out.println("____________________________________");
+                IO.println(pessoa);
+                IO.println("____________________________________");
             }
         }
     }
@@ -76,63 +76,63 @@ public class CadastroPessoas extends Pessoa {
         for (Pessoa pessoa : pessoas) {
             if (pessoa instanceof Fisica pf && pf.getCpf().equals(documento)) {
                 pf.setNome(nome);
-                System.out.println("Cadastro alterado com sucesso!");
-                System.out.println(pf);
+                IO.println("Cadastro alterado com sucesso!");
+                IO.println(pf);
                 return;
             } else if (pessoa instanceof Juridica pj && pj.getCnpj().equals(documento)) {
                 pj.setNome(nome);
-                System.out.println("Cadastro alterado com sucesso!");
-                System.out.println(pj);
+                IO.println("Cadastro alterado com sucesso!");
+                IO.println(pj);
                 return;
             }
-            System.out.println("Nenhum cadastro foi encontrado com o número de CPF ou CNPJ. " + documento);
+            IO.println("Nenhum cadastro foi encontrado com o número de CPF ou CNPJ. " + documento);
         }
     }
 
     public void alterarEndereco(String documento, String endereco) {
         for (Pessoa pessoa : pessoas) {
             if (pessoa instanceof Fisica pf && pf.getCpf().equals(documento)) {
-                System.out.println("Cadastro alterado com sucesso!");
-                System.out.println(pf);
+                IO.println("Cadastro alterado com sucesso!");
+                IO.println(pf);
                 pf.setEndereco(endereco);
                 return;
             } else if (pessoa instanceof Juridica pj && pj.getCnpj().equals(documento)) {
-                System.out.println("Cadastro alterado com sucesso!");
-                System.out.println(pj);
+                IO.println("Cadastro alterado com sucesso!");
+                IO.println(pj);
                 pj.setEndereco(endereco);
                 return;
             }
-            System.out.println("Nenhum cadastro foi encontrado com o número de CPF ou CNPJ." + documento);
+            IO.println("Nenhum cadastro foi encontrado com o número de CPF ou CNPJ." + documento);
         }
     }
 
     public void alterarTelefone(String documento, long telefone) {
         for (Pessoa pessoa : pessoas) {
             if (pessoa instanceof Fisica pf && pf.getCpf().equals(documento)) {
-                System.out.println("Cadastro alterado com sucesso!");
-                System.out.println(pf);
+                IO.println("Cadastro alterado com sucesso!");
+                IO.println(pf);
                 pf.setTelefone(telefone);
                 return;
             } else if (pessoa instanceof Juridica pj && pj.getCnpj().equals(documento)) {
-                System.out.println("Cadastro alterado com sucesso!");
-                System.out.println(pj);
+                IO.println("Cadastro alterado com sucesso!");
+                IO.println(pj);
                 pj.setTelefone(telefone);
                 return;
             }
-            System.out.println("Nenhum cadastro foi encontrado com o número de CPF ou CNPJ." + documento);
+            IO.println("Nenhum cadastro foi encontrado com o número de CPF ou CNPJ." + documento);
         }
     }
 
     public void alterarEmail(String documento, String email) {
         for (Pessoa pessoa : pessoas) {
             if (pessoa instanceof Fisica pf && pf.getCpf().equals(documento)) {
-                System.out.println("Cadastro alterado com sucesso!");
-                System.out.println(pf);
+                IO.println("Cadastro alterado com sucesso!");
+                IO.println(pf);
                 pf.setEmail(email);
                 return;
             } else if (pessoa instanceof Fisica pj && pj.getCpf().equals(documento)) {
-                System.out.println("Cadastro alterado com sucesso!");
-                System.out.println(pj);
+                IO.println("Cadastro alterado com sucesso!");
+                IO.println(pj);
                 pj.setEmail(email);
                 return;
             }
@@ -142,18 +142,18 @@ public class CadastroPessoas extends Pessoa {
     public void remover(String nome) {
         for (Pessoa pessoa : pessoas) {
             if (pessoa instanceof Fisica pf && pf.getNome().equalsIgnoreCase(nome)) {
-                System.out.println(pf);
+                IO.println(pf);
                 pessoas.remove(pessoa);
-                System.out.println("Removido com sucesso!");
+                IO.println("Removido com sucesso!");
                 IO.println();
                 return;
             }
         }
         for (Pessoa pessoa : pessoas) {
             if (pessoa instanceof Juridica pj && pj.getNome().equalsIgnoreCase(nome)) {
-                System.out.println(pj);
+                IO.println(pj);
                 pessoas.remove(pessoa);
-                System.out.println("Removido com sucesso!");
+                IO.println("Removido com sucesso!");
                 IO.println();
                 return;
             }
