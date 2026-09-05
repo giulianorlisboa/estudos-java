@@ -3,7 +3,7 @@ import entities.Installment;
 import services.ContractService;
 import services.PaypalService;
 
-void main(){
+void main() {
     Scanner sc = new Scanner(System.in);
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -31,6 +31,6 @@ void main(){
         IO.println(i.getDate().format(dtf) + " - " + String.format("%.2f", i.getAmount()));
     }
 
-
+    sc.close();
 
 }
