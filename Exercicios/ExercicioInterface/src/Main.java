@@ -28,7 +28,7 @@ void main() {
     cs.processContract(contract, quantity);
 
     for (Installment i : contract.getInstallments()) {
-        IO.println(i.getDate().format(dtf) + " - " + String.format("%.2f", i.getAmount()));
+        IO.println(i);
     }
 
     sc.close();
