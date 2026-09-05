@@ -13,14 +13,6 @@ public class ContractService {
         this.onlinePaymentService = onlinePaymentService;
     }
 
-    public OnlinePaymentService getOnlinePaymentService() {
-        return onlinePaymentService;
-    }
-
-    public void setOnlinePaymentService(OnlinePaymentService onlinePaymentService) {
-        this.onlinePaymentService = onlinePaymentService;
-    }
-
     public void processContract(Contract contract, int months) {
 
         Double amountInstallment = contract.getTotalValue() / months;
