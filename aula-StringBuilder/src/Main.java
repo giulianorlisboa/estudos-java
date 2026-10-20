@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-        Comment c1 = new Comment("Have a nice trip!");
+        Comment c1 = new Comment("Have a nice tripp!");
         Comment c2 = new Comment("Wow that's awesome!");
         LocalDateTime moment = LocalDateTime.parse("21/06/2026 16:00:50", formatter);
         Post p1 = new Post(moment,
